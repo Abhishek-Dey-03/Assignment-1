@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-// Assignment 1 - skeleton code
-
-// Program to calculate transition energy using simple Bohr formula
+//Assignment 1 10821797
+//This program is created to use the simple Bohr formula to model electron transitions.
+//This program will take user input Atomic Number Z and two principle quantum numbers, to calculate photon energies from a transition.
+//It will output via user request either Joules or eV.
 
 #include<iostream>
 #include<iomanip>
@@ -58,8 +58,4 @@ int main()
 
   return 0;
 }
-=======
-//Assignment 1 10821797
-//This program is created to use the simple Bohr formula to model electron transitions.
-//This program will take user input Atomic Numeber Z and 
->>>>>>> e938b1c219066de48c76c02da3757a51ee663945
+
