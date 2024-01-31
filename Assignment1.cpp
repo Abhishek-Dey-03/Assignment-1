@@ -13,19 +13,17 @@ It will output via user request either Joules or eV.
 
 double energyCalc(int Z, int n_i, int n_f, char energy_choice) 
 {
-    double reciprocal_initial= 1.0/n_i;
-    double reciprocal_final= 1.0/n_f;
+    double reciprocal_initial= 1.0/(n_i*n_i);
+    double reciprocal_final= 1.0/(n_f*n_f);
     double e;
 
     if(energy_choice == 'e') 
     {
-        double e = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial);
-        // std::cout<<"Transition Energy: "<<E_eV<<"eV."<<std::endl;
+         e = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial);
     }
     else 
     {
-        double e = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial) * 1.60218e-19;
-        // std::cout<<"Transition Energy: "<<E_joules<<"J."<<std::endl;
+        e = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial) * 1.60218e-19;
     }
     return e;
 }
