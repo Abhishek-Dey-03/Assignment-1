@@ -12,71 +12,43 @@ int main(){
     do{
         int Z; //integer atomic number
         int n_i; //principle quantum number initial
-        int n_j; //principle quantum number final
+        int n_f; //principle quantum number final
         char energy_choice; //choice of energy
         
 
     // take in input for atomic number
-        std::cout<<"Enter the Atomic Number, intial quantum number, final quantum number and your choice of energy.\n The energy choice should be e (eV) or J (Joules): ";
-        std::cin>>Z;
-        std::cin>>n_i;
-        std::cin>>n_j;
-        std::cin>>energy_choice;
+        std::cout<<"Enter the Atomic Number, intial quantum number, final quantum number and your choice of energy. The energy choice should be e (eV) or J (Joules): ";
+        std::cin>>Z>>n_i>>n_f>>energy_choice;
 
 
 
     // catch erroneous input
         while(std::cin.fail())
         {
-            std::cout<<"The atomic number must be an integer number without decimal points.\n Please try again:"; 
+            std::cout<<"There is an invalid input. Please try again:";
+            std::cout<<"Enter the Atomic Number, intial quantum number, final quantum number and your choice of energy. The energy choice should be e (eV) or J (Joules): "; 
             //ignore any non-integer inputs, clear the variable and ignore input.
             std::cin.clear();
             std::cin.ignore();
             std::cin>>Z;
-
-        }
-   
-   
-        while(std::cin.fail())
-        {
-            std::cout<<"The principle number must be an integer number without decimal points.\n Please try again:"; 
-        //ignore any non-integer inputs, clear the variable and ignore input.
-            std::cin.clear();
-            std::cin.ignore();
             std::cin>>n_i;
+            std::cin>>n_f;
+            std::cin>>energy_choice;
 
         }
 
-    
-        while(std::cin.fail())
-        {
-            std::cout<<"The principle number must be an integer number without decimal points.\n Please try again:"; 
-            //ignore any non-integer inputs, clear the variable and ignore input.
-            std::cin.clear();
-            std::cin.ignore();
-            std::cin>>n_j;
-
-        }
-        
-        //input for energy type
-
-
-        while(std::cin.fail())
-        {
-            std::cout<<"The choice must be a single letter e or J.\n Please try again:"; 
-            //ignore any non-char inputs, clear the variable and ignore input.
-            std::cin.clear();
-            std::cin.ignore();
-            std::cin>>n_i;
-        }
 
         while (energy_choice != 'e' && energy_choice != 'J') {
             std::cout << "Invalid choice. Please enter 'e' for energy in electron volts, or 'J' for energy in joules: ";
-            std::cin >> energy_choice;
+            std::cout<<"Enter the Atomic Number, intial quantum number, final quantum number and your choice of energy. The energy choice should be e (eV) or J (Joules): ";
+            std::cin>>Z;
+            std::cin>>n_i;
+            std::cin>>n_f;
+            std::cin>>energy_choice;
         }
 
         double reciprocal_initial= 1.0/n_i;
-        double reciprocal_final= 1.0/n_j;
+        double reciprocal_final= 1.0/n_f;
         if (energy_choice == 'e'){
             double E_eV = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial);
             std::cout<<"Transition Energy: "<<E_eV<<"eV."<<std::endl;
