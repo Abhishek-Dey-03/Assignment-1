@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Assignment 1 - skeleton code
 
 // Program to calculate transition energy using simple Bohr formula
@@ -57,3 +58,8 @@ int main()
 
   return 0;
 }
+=======
+//Assignment 1 10821797
+//This program is created to use the simple Bohr formula to model electron transitions.
+//This program will take user input Atomic Numeber Z and 
+>>>>>>> e938b1c219066de48c76c02da3757a51ee663945
