@@ -69,9 +69,13 @@ int main()
 
     double reciprocal_initial= 1.0/n_i;
     double reciprocal_final= 1.0/n_j;
-    double E = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial);
-
-    std::cout<<"Transition Energy: "<<E<<"eV."<<std::endl;
+    if (energy_choice == 'e'){
+        double E = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial);
+        std::cout<<"Transition Energy: "<<E<<"eV."<<std::endl;
+    }
+    else {
+        double E = 13.6 * Z * Z * (reciprocal_final - reciprocal_initial) * 1.60218e-19;
+    }
 
   return 0;
 }
