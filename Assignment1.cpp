@@ -9,7 +9,9 @@ It will output via user request either Joules or eV.
 =====================================================================================================================================*/
 
 #include <iostream>
-#include <iomanip>
+#include <iomanip>  
+#include <cctype>
+#include <cmath>
 
 double energy_calc(int Z, int n_i, int n_f, char energy_choice) 
 {
@@ -44,13 +46,13 @@ int main()
         std::cin>>Z>>n_i>>n_f>>energy_choice;
 
     // catch erroneous input
-        while(!isdigit(Z)||!isdigit(n_i)||!isdigit(n_f)) 
+        while((std::cin.fail())) 
         {
             std::cout<<"There is an invalid input. Please try again:\n";
             std::cout<<"Enter the Atomic Number, initial quantum number, final quantum number and your choice of energy. The energy choice should be e (eV) or J (Joules): "; 
             //ignore any non-integer inputs, clear the variable and ignore input.
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cin>>Z;
             std::cin>>n_i;
             std::cin>>n_f;
@@ -63,7 +65,7 @@ int main()
             std::cout<<"Invalid choice. Please ensure the final stage is less than the initial stage:\n ";
             std::cout<<"Enter the Atomic Number, initial quantum number, final quantum number and your choice of energy. The energy choice should be e (eV) or J (Joules): ";
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cin>>Z;
             std::cin>>n_i;
             std::cin>>n_f;
@@ -76,7 +78,7 @@ int main()
             std::cout<<"Invalid choice. Please enter 'e' for energy in electron volts, or 'J' for energy in joules:\n ";
             std::cout<<"Enter the Atomic Number, initial quantum number, final quantum number and your choice of energy. The energy choice should be e (eV) or J (Joules): ";
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cin>>Z;
             std::cin>>n_i;
             std::cin>>n_f;
@@ -101,7 +103,7 @@ int main()
         {
             std::cout<<"Invalid choice. Please enter 'y' to repeat or 'n' to exit: ";
             std::cin.clear();
-            std::cin.ignore();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cin>>repeat_choice;
         }
     
